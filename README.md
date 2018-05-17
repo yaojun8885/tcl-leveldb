@@ -59,6 +59,13 @@ below is an example:
     $ make
     $ make install
 
+When the commands are not work, my solotion: 
+./configure --prefix=/depot/tcl-leveldb --with-tcl=/depot/tcl8.6.3/lib
+
+setenv LD_LIBARARY_PATH /depot/leveldb/leveldb-1.19/out-shared:$LD_LIBRARY_PATH
+
+/depot/gcc-4.9.2/bin/g++ -shared -pipe -O2 -fomit-frame-pointer -DNDEBUG -Wall -fPIC -Wl,--export-dynamic -o libleveldb0.2.so tclleveldb.o -lleveldb -L/depot/tcl8.6.3/lib -ltclstub8.6 -L/depot/leveldb/leveldb-1.19/out-shared
+
 
 Implement commands
 =====
